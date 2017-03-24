@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Authors>Alex Gausman</Authors>
+    <Company />
+    <Description>A tag helper for GitHub's Octicon icons.</Description>
+    <PackageProjectUrl>https://github.com/alex-gausman/Octicon.TagHelper</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/alex-gausman/Octicon.TagHelper/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/alex-gausman/Octicon.TagHelper</RepositoryUrl>
+    <PackageTags>Octicon TagHelper AspNet GitHub</PackageTags>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="1.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="10.0.1" />
+  </ItemGroup>
+
+</Project>

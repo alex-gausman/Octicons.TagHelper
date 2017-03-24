@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.4
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcticonTest", "OcticonTest\OcticonTest.csproj", "{7C9D02C1-D52B-4DF6-845A-4FF4BB63E6B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Octicons.TagHelper", "Octicons.TagHelper\Octicons.TagHelper.csproj", "{2757A378-CEA6-477C-9CBC-0A3DCF52EC88}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7C9D02C1-D52B-4DF6-845A-4FF4BB63E6B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9D02C1-D52B-4DF6-845A-4FF4BB63E6B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9D02C1-D52B-4DF6-845A-4FF4BB63E6B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9D02C1-D52B-4DF6-845A-4FF4BB63E6B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2757A378-CEA6-477C-9CBC-0A3DCF52EC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2757A378-CEA6-477C-9CBC-0A3DCF52EC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2757A378-CEA6-477C-9CBC-0A3DCF52EC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2757A378-CEA6-477C-9CBC-0A3DCF52EC88}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
