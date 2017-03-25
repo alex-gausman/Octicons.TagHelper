@@ -4,7 +4,7 @@
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <Authors>Alex Gausman</Authors>
     <Company />
-    <Description>A tag helper for GitHub's Octicon icons.</Description>
+    <Description>A tag helper for GitHub's Octicon icon set.</Description>
     <PackageProjectUrl>https://github.com/alex-gausman/Octicon.TagHelper</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/alex-gausman/Octicon.TagHelper/blob/master/LICENSE</PackageLicenseUrl>
     <RepositoryUrl>https://github.com/alex-gausman/Octicon.TagHelper</RepositoryUrl>
@@ -16,6 +16,16 @@
     <Compile Remove="node_modules\**" />
     <EmbeddedResource Remove="node_modules\**" />
     <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="lib\data.json" />
+    <None Remove="lib\sprite.octicons.svg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="lib\data.json" />
+    <EmbeddedResource Include="lib\sprite.octicons.svg" />
   </ItemGroup>
 
   <ItemGroup>
