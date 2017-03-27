@@ -61,8 +61,11 @@ namespace Octicons.TagHelper
             return content;
         }
 
-        public static string SymbolName(OcticonSymbol symbol) => 
-            Enum.GetName(symbol.GetType(), symbol).ToLower();
+        public static string SymbolName(OcticonSymbol symbol)
+        {
+            string name = Enum.GetName(symbol.GetType(), symbol);
+            return Regex.Replace(name, @"([a-z])([A-Z])", "$1-$2").ToLower();
+        }
 
         /// <summary>
         /// Use this method to get an <see cref="Octicon" /> symbol.

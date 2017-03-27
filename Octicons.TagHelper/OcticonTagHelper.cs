@@ -6,17 +6,16 @@ namespace Octicons.TagHelper
     /// <summary>
     /// A tag helper for GitHub's Octicon icons.
     /// </summary>
-    [TagHelpers.HtmlTargetElement("svg", Attributes = "octicon")]
     public class OcticonTagHelper : TagHelpers.TagHelper
     {
         /// <summary>
         /// The Octicon symbol to display
         /// </summary>
-        public OcticonSymbol Octicon { get; set; }
+        public OcticonSymbol Symbol { get; set; }
 
         /// <summary>
         /// Use this option to reference the Octicon from the external spritesheet.
-        /// For use with <see cref="OcticonSpritesheetTagHelper"/>.
+        /// For use with <see cref="OcticonSpriteSheetTagHelper"/>.
         /// </summary>
         private const string UseSpriteAttributeName = "use-sprite";
 
@@ -29,12 +28,12 @@ namespace Octicons.TagHelper
         /// Optional width. If not set will use Octicon default.
         /// </summary>
         public int? Width { get; set; }
-
-        private string Version { get; set; } = "1.1";
+        
+        private const string Version = "1.1";
         private Octicons _octicons = Octicons.Instance;
         private string ViewBox() => $"0 0 {Width} {Height}";
         private string Svg(bool useSprite) =>
-            useSprite ? $"<use xlink:href=\"#{Octicons.SymbolName(Octicon)}\" />" : _octicons.Symbol(Octicon).Path;
+            useSprite ? $"<use xlink:href=\"#{Octicons.SymbolName(Symbol)}\" />" : _octicons.Symbol(Symbol).Path;
 
         private int CalculateWidth(int height, Octicon octicon) => (height * octicon.Width) / octicon.Height;
 
@@ -58,7 +57,7 @@ namespace Octicons.TagHelper
         {
             var useSpriteAttribute = new TagHelpers.TagHelperAttribute(UseSpriteAttributeName);
             bool useSprite = context.AllAttributes.Contains(useSpriteAttribute);
-            var octicon = _octicons.Symbol(Octicon);
+            var octicon = _octicons.Symbol(Symbol);
             CalculateSize(octicon);
             output.TagName = "svg";
             output.Content.SetHtmlContent(Svg(useSprite));

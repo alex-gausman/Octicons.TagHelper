@@ -1,25 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Reflection;
-using System.Text;
+﻿using System.Threading.Tasks;
 using TagHelpers = Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Octicons.TagHelper
 {
-    [TagHelpers.HtmlTargetElement("svg", Attributes = "octicon-sprites")]
-    public class OcticonSpritesheetTagHelper: TagHelpers.TagHelper
+    [TagHelpers.RestrictChildren("include")]
+    public class OcticonSpriteSheetTagHelper : TagHelpers.TagHelper
     {
-        private const string OcticonSpritesAttributeName = "octicon-sprites";
+        private const string svgNamespace = "http://www.w3.org/2000/svg";
 
-        public override void Process(TagHelpers.TagHelperContext context, TagHelpers.TagHelperOutput output)
+        public override async Task ProcessAsync(TagHelpers.TagHelperContext context, TagHelpers.TagHelperOutput output)
         {
-            var octiconSpritesAttribute = new TagHelpers.TagHelperAttribute(OcticonSpritesAttributeName);
-            if (context.AllAttributes.Contains(octiconSpritesAttribute))
-            {
-                output.Attributes.Remove(octiconSpritesAttribute);
+            var content = await output.GetChildContentAsync();
+            
+            output.TagName = "svg";
+            output.Attributes.Add("xmlns", svgNamespace);
+
+            if (content.IsEmptyOrWhiteSpace)
                 output.Content.SetHtmlContent(Octicons.Instance.SpriteSheet);
-            }
         }
     }
 }
