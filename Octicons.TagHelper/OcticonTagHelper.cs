@@ -6,18 +6,19 @@ namespace Octicons.TagHelper
     /// <summary>
     /// A tag helper for GitHub's Octicon icons.
     /// </summary>
+    [TagHelpers.HtmlTargetElement("svg", Attributes = "octicon")]
     public class OcticonTagHelper : TagHelpers.TagHelper
     {
         /// <summary>
         /// The Octicon symbol to display
         /// </summary>
-        public OcticonSymbol Symbol { get; set; }
+        public OcticonSymbol Octicon { get; set; }
 
         /// <summary>
         /// Use this option to reference the Octicon from the external spritesheet.
         /// For use with <see cref="OcticonSpritesheetTagHelper"/>.
         /// </summary>
-        public bool SvgUse { get; set; }
+        private const string UseSpriteAttributeName = "use-sprite";
 
         /// <summary>
         /// Optional height. If not set will use Octicon default.
@@ -32,9 +33,8 @@ namespace Octicons.TagHelper
         private string Version { get; set; } = "1.1";
         private Octicons _octicons = Octicons.Instance;
         private string ViewBox() => $"0 0 {Width} {Height}";
-        private string SymbolName() => Enum.GetName(Symbol.GetType(), Symbol).ToLower();
-        private string Svg() =>
-            SvgUse ? $"<use xlink:href=\"#{SymbolName()}\" />" : _octicons.Symbol(SymbolName()).Path;
+        private string Svg(bool useSprite) =>
+            useSprite ? $"<use xlink:href=\"#{Octicons.SymbolName(Octicon)}\" />" : _octicons.Symbol(Octicon).Path;
 
         private int CalculateWidth(int height, Octicon octicon) => (height * octicon.Width) / octicon.Height;
 
@@ -44,7 +44,7 @@ namespace Octicons.TagHelper
         {
             if (Width.HasValue || Height.HasValue)
             {
-                Width = Width ?? CalculateWidth(Height.Value, octicon); 
+                Width = Width ?? CalculateWidth(Height.Value, octicon);
                 Height = Height ?? CalculateHeight(Width.Value, octicon);
             }
             else
@@ -56,10 +56,12 @@ namespace Octicons.TagHelper
 
         public override void Process(TagHelpers.TagHelperContext context, TagHelpers.TagHelperOutput output)
         {
-            var octicon = _octicons.Symbol(SymbolName());
+            var useSpriteAttribute = new TagHelpers.TagHelperAttribute(UseSpriteAttributeName);
+            bool useSprite = context.AllAttributes.Contains(useSpriteAttribute);
+            var octicon = _octicons.Symbol(Octicon);
             CalculateSize(octicon);
             output.TagName = "svg";
-            output.Content.SetHtmlContent(Svg());
+            output.Content.SetHtmlContent(Svg(useSprite));
             output.Attributes.Add("viewBox", ViewBox());
             output.Attributes.Add("width", Width.ToString());
             output.Attributes.Add("height", Height.ToString());
