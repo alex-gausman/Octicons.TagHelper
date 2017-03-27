@@ -53,6 +53,21 @@ namespace Octicons.TagHelper
             }
         }
 
+        private string Classes(TagHelpers.TagHelperContext context)
+        {
+            var symbolName = Octicons.SymbolName(Symbol);
+            var classes = $"octicon octicon-{symbolName}";
+            TagHelpers.TagHelperAttribute classAttribute;
+            bool foundClass = context.AllAttributes.TryGetAttribute("class", out classAttribute);
+
+            if (foundClass)
+            {
+                classes = $"{classes} {classAttribute.Value}";
+            }
+
+            return classes;
+        }
+
         public override void Process(TagHelpers.TagHelperContext context, TagHelpers.TagHelperOutput output)
         {
             var useSpriteAttribute = new TagHelpers.TagHelperAttribute(UseSpriteAttributeName);
@@ -60,11 +75,13 @@ namespace Octicons.TagHelper
             var octicon = _octicons.Symbol(Symbol);
             CalculateSize(octicon);
             output.TagName = "svg";
-            output.Content.SetHtmlContent(Svg(useSprite));
+            output.Attributes.Remove(useSpriteAttribute);
             output.Attributes.Add("viewBox", ViewBox());
             output.Attributes.Add("width", Width.ToString());
             output.Attributes.Add("height", Height.ToString());
             output.Attributes.Add("version", Version);
+            output.Attributes.SetAttribute("class", Classes(context));
+            output.Content.SetHtmlContent(Svg(useSprite));
         }
     }
 }
