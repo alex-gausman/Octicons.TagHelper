@@ -2,14 +2,16 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Version>1.0.0-alpha</Version>
     <Authors>Alex Gausman</Authors>
     <Company />
     <Description>A tag helper for GitHub's Octicon icon set.</Description>
-    <PackageProjectUrl>https://github.com/alex-gausman/Octicon.TagHelper</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/alex-gausman/Octicon.TagHelper/blob/master/LICENSE</PackageLicenseUrl>
-    <RepositoryUrl>https://github.com/alex-gausman/Octicon.TagHelper</RepositoryUrl>
-    <PackageTags>Octicon TagHelper AspNet GitHub</PackageTags>
+    <PackageProjectUrl>https://github.com/alex-gausman/Octicons.TagHelper</PackageProjectUrl>
+    <PackageLicenseUrl>https://github.com/alex-gausman/Octicons.TagHelper/blob/alpha/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/alex-gausman/Octicons.TagHelper</RepositoryUrl>
+    <PackageTags>Octicon TagHelper AspNet AspNetMvc GitHub</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
