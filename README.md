@@ -9,3 +9,5 @@ Install-Package Octicons.TagHelper -Version 1.0.0-alpha -Pre
 
 ## Usage
 To render a symbol, use the `<octicon>` tag.
+
+<img src="https://raw.githubusercontent.com/alex-gausman/Octicons.TagHelper/alpha/octicon-in-action.gif">
