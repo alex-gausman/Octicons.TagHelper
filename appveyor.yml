@@ -11,6 +11,8 @@ test: off
 artifacts:
 - path: Octicons.TagHelper/bin/Release/*.nupkg
   name: NuGet
+before_build:
+  - ps: nuget restore
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/octicons-taghelper-dev/api/v2/package
