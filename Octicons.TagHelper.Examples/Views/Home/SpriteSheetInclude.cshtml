@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Octicon Sprite Sheet Usage";
+}
+
+@* 
+When <include> is used, only those symbols will be rendered in 
+the sprite sheet output. Use this when you want to reduce the footprint
+of the rendered sprite sheet.
+*@
+
+<octicon-sprite-sheet>
+    <include symbol="Bug"></include>
+</octicon-sprite-sheet>
+
+<octicon symbol="Bug" use-sprite></octicon>

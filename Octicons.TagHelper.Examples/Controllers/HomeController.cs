@@ -13,5 +13,10 @@ namespace Octicons.TagHelper.Examples.Controllers
         {
             return View();
         }
+
+        public IActionResult SpriteSheetInclude()
+        {
+            return View();
+        }
     }
 }

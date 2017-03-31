@@ -23,7 +23,7 @@ If you want to optimize your page size, use the sprite sheet tag helper.
 <octicon-sprite-sheet></octicon-sprite-sheet>
 ````
 
-2. Add use-sprite to the octicon tag. This will reference the svg path in the sprite sheet
+2. Add attribute `use-sprite` to the octicon tag. This will reference the svg path in the sprite sheet
 ```html
 <octicon symbol="Octoface" use-sprite></octicon>
 ```
