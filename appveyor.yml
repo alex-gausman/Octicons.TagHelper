@@ -1,30 +1,43 @@
-version: '{build}'
+version: '1.0.{build}'
+
+image: Visual Studio 2017
+
+configuration: Release
+
 pull_requests:
     do_not_increment_build_number: true
+
 branches:
     only:
         - master
-image: Visual Studio 2017
+
 nuget:
     disable_publish_on_pr: true
+
 test: off
+
 artifacts:
-- path: Octicons.TagHelper/bin/Release/*.nupkg
-  name: NuGet
+    - path: Octicons.TagHelper/bin/Release/*.nupkg
+        name: NuGet
+
 before_build:
-  - ps: nuget restore
+    - ps: nuget restore
+    - ps: npm run update
+
 deploy:
-- provider: NuGet
-  server: https://www.myget.org/F/octicons-taghelper-dev/api/v2/package
-  api_key:
-    secure: T86TwEt8UtP/h1+0BP/SRUigDBFtrA21CpJ4Mb7W/JfoBYKN7NyN7Ir7tzlIaKrv
-  skip_symbols: true
-  on:
-    branch: master
-- provider: NuGet
-  name: production
-  api_key:
-    secure: kNjhX0yw81rRfpM3sZ520umca1S40vT7X59COWVQf8w1Ir7aL/pxKXtTLquU26WX
-  on:
-    branch: master
-    appveyor_repo_tag: true
+
+    - provider: NuGet
+      server: https://www.myget.org/F/octicons-taghelper-dev/api/v2/package
+      api_key:
+        secure: T86TwEt8UtP/h1+0BP/SRUigDBFtrA21CpJ4Mb7W/JfoBYKN7NyN7Ir7tzlIaKrv
+      skip_symbols: true
+      on:
+        branch: master
+
+    - provider: NuGet
+      name: production
+      api_key:
+        secure: kNjhX0yw81rRfpM3sZ520umca1S40vT7X59COWVQf8w1Ir7aL/pxKXtTLquU26WX
+      on:
+        branch: master
+        appveyor_repo_tag: true
