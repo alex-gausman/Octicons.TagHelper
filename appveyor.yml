@@ -18,7 +18,7 @@ test: off
 
 artifacts:
     - path: Octicons.TagHelper/bin/Release/*.nupkg
-        name: NuGet
+      name: NuGet
 
 before_build:
     - ps: nuget restore
