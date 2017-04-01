@@ -22,7 +22,7 @@ artifacts:
 
 before_build:
     - ps: nuget restore
-    - ps: npm run update
+    - ps: npm --prefix Octicons.TagHelper run update
 
 deploy:
 
