@@ -22,9 +22,9 @@ artifacts:
 
 before_build:
     - ps: |
-    nuget restore
-    if ((test-path lib) -ne $true) { mkdir lib }
-    npm --prefix Octicons.TagHelper run update
+        nuget restore
+        if ((test-path lib) -ne $true) { mkdir lib }
+        npm --prefix Octicons.TagHelper run update
 
 deploy:
 
