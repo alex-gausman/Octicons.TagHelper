@@ -5,7 +5,7 @@
   "scripts": {
     "data": "cp -f node_modules/octicons/build/data.json ./lib",
     "svg": "cp -f node_modules/octicons/build/sprite.octicons.svg ./lib",
-    "update": "npm install octicons && mkdir lib && npm run data && npm run svg"
+    "update": "npm install octicons && npm run data && npm run svg"
   },
   "dependencies": {
     "octicons": "5.0.1"
