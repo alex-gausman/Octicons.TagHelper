@@ -1,17 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <Version>1.0.0</Version>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Version>2.0.0</Version>
     <Authors>Alex Gausman</Authors>
     <Company />
     <Description>A tag helper for GitHub's Octicon icon set.</Description>
     <PackageProjectUrl>https://github.com/alex-gausman/Octicons.TagHelper</PackageProjectUrl>
-    <PackageLicenseUrl>https://github.com/alex-gausman/Octicons.TagHelper/blob/alpha/LICENSE</PackageLicenseUrl>
+    <License>https://github.com/alex-gausman/Octicons.TagHelper/blob/alpha/LICENSE</License>
     <RepositoryUrl>https://github.com/alex-gausman/Octicons.TagHelper</RepositoryUrl>
     <PackageTags>Octicon TagHelper AspNet AspNetMvc GitHub</PackageTags>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageReleaseNotes>using netstandard2.0</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
@@ -32,7 +32,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
 </Project>
